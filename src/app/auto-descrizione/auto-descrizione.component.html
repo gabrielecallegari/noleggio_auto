@@ -1,0 +1,46 @@
+<div class="container" >
+  <div *ngIf="auto != null">
+  <div class="row">
+    <div class="col">
+      <p class="lead">
+       Marca: {{auto.marca}} <br>
+       Modello: {{auto.modello}} <br>
+       Cavalli: {{auto.potenza}} <br>
+       Porte: {{auto.porte}}
+      </p>
+    </div>
+    <div class="col lead">
+      Clicca per sentire il sound <br>
+      <audio controls style="width: 50%;">
+        <source src="{{auto.audio}}" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div *ngIf="auto.disponibile===true" class="col" style="margin-top: 25px;">
+      <a routerLink="/pagamento" class="btn btn-success">Prenota al prezzo di {{auto.prezzo}}€</a>
+    </div>
+
+    <div *ngIf="auto.disponibile===false" class="col" style="margin-top: 25px;">
+      <label class="btn btn-danger disabled">Auto non disponibile</label>
+    </div>
+    <div class="row" style="margin-top: 100px;">
+      <div class="col lead">
+        <h3>
+          Overview.
+        </h3>
+        <p>
+          {{auto.descrizione}}
+        </p>
+      </div>
+      <div class="col">
+        <img src="{{ auto.immagine }}">
+      </div>
+    </div>
+  </div>
+
+</div>
+<div *ngIf="auto == null" >
+  <h3>Auto non trovata</h3>
+  <a routerLink="/lista-auto" class="btn btn-warning">Torna alla lista auto disponibili</a>
+</div>
+</div>
