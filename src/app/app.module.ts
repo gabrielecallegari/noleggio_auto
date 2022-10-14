@@ -9,9 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { ListaAutoComponent } from './lista-auto/lista-auto.component';
 import { PaginanontrovatComponent } from './paginanontrovat/paginanontrovat.component';
-import { PrezziComponent } from './prezzi/prezzi.component';
 import { ContattiComponent } from './contatti/contatti.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
+import { AppPaginaComponent } from './app-pagina/app-pagina.component';
+import { FinePagamentoComponent } from './fine-pagamento/fine-pagamento.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { PagamentoComponent } from './pagamento/pagamento.component';
     RegistrazioneComponent,
     ListaAutoComponent,
     PaginanontrovatComponent,
-    PrezziComponent,
     ContattiComponent,
-    PagamentoComponent
+    PagamentoComponent,
+    AppPaginaComponent,
+    FinePagamentoComponent
   ],
   imports: [
     BrowserModule,

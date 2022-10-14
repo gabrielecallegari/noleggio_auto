@@ -9,16 +9,16 @@
        Porte: {{auto.porte}}
       </p>
     </div>
-    <div class="col lead">
-      Clicca per sentire il sound <br>
-      <audio controls style="width: 50%;">
-        <source src="{{auto.audio}}" type="audio/mpeg">
-      Your browser does not support the audio element.
-      </audio>
+    <div class="col">
+
     </div>
-    <div *ngIf="auto.disponibile===true" class="col" style="margin-top: 25px;">
-      <a routerLink="/pagamento" class="btn btn-success">Prenota al prezzo di {{auto.prezzo}}€</a>
-    </div>
+      <div *ngIf="auto.disponibile===true && logged===true" class="col" style="margin-top: 25px; ">
+        <a routerLink="/pagamento/{{auto.autoid}}" class="btn btn-success ">Prenota al prezzo di {{auto.prezzo}}€ al giorno </a>
+      </div>
+
+      <div *ngIf="auto.disponibile===true && logged===false" class="col" style="margin-top: 25px;">
+        <a routerLink="/login" class="btn btn-success">Loggati per scoprire il prezzo</a>
+      </div>
 
     <div *ngIf="auto.disponibile===false" class="col" style="margin-top: 25px;">
       <label class="btn btn-danger disabled">Auto non disponibile</label>
@@ -33,14 +33,23 @@
         </p>
       </div>
       <div class="col">
-        <img src="{{ auto.immagine }}">
+        <img [src]="link" style="width: 600px;">
       </div>
     </div>
   </div>
 
 </div>
 <div *ngIf="auto == null" >
-  <h3>Auto non trovata</h3>
-  <a routerLink="/lista-auto" class="btn btn-warning">Torna alla lista auto disponibili</a>
+  <div class="d-flex align-items-center justify-content-center" style="margin-top: 100px;">
+    <div class="text-center">
+        <h1 class="display-1 fw-bold">404</h1>
+        <p class="fs-3"> <span class="text-danger">Opps!</span> Auto non trovata.</p>
+        <p class="lead">
+           L'auto che stai cercando purtroppo non esiste.
+          </p>
+        <a routerLink="/lista-auto"class="btn btn-primary">Vai Alla Lista Auto</a>
+    </div>
+  </div>
 </div>
+
 </div>

@@ -1,1 +1,84 @@
-<p>pagamento works!</p>
+<body >
+
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+       <h2>Checkout</h2>
+        <p class="lead">Il tuo sogno si sta per realizzare! Per favore, compila il seguente form, riceverai via mail le istruzioni per venire a prendere la tua supercar</p>
+      </div>
+
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">La tua supercar</span>
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">{{auto?.marca}} {{auto?.modello}}</h6>
+              </div>
+              <span class="text-muted"> </span>
+              <div>
+                <h6>Prezzo :  {{prezzo}} €</h6>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Dati Pagamento</h4>
+
+
+
+            <hr class="my-4">
+
+
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <label for="cc-name" class="form-label">Nome sulla carta</label>
+                <input type="text" class="form-control" id="cc-name" #nomeCarta placeholder="es: Gabriele Callegari">
+                <small class="text-muted">Nome completo scritto sulla carta</small>
+
+              </div>
+
+              <div class="col-md-6">
+                <label for="cc-number" class="form-label">Numero carta</label>
+                <input type="text" class="form-control" id="cc-number" #numeroCarta placeholder="es: 5555 5555 5555 5555">
+
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-expiration" class="form-label">Data scadenza</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="es: 10/22" #dataScadenza>
+
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="es: 183" #cvv>
+
+              </div>
+              <div class="col-md-3">
+                <label for="cc-cvv" class="form-label">Numero giorni (1-7)</label>
+                <input type="number" name="giorni" min="1" max="7" value="1" #giorni style="width:100px;" class="form-control" (change)="onChange($event)">
+
+              </div>
+            </div>
+
+            <hr class="my-4">
+            <label class="text-danger">
+             {{errore}}
+            </label>
+            <button class="w-100 btn btn-primary btn-lg" (click)="onPagamento(numeroCarta,nomeCarta,dataScadenza,cvv,giorni)">Prenota la tua auto</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">© NoleggioAuto</p>
+    </footer>
+  </div>
+
+
+
+  </body>

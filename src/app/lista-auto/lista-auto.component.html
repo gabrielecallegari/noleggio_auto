@@ -3,19 +3,14 @@
     <div class="col">
       Auto disponibili :
     </div>
-    <div class="col">
-      Ordina per prezzo:
-      <button style="margin-right: 20px; margin-left:10px;" class="btn btn-primary">Crescente</button>
-      <button class="btn btn-secondary">Decrescente</button>
-    </div>
   </span>
   <div class="col" *ngFor="let i of auto" style="margin-top: 20px;">
     <span class="row border rounded-top rounded-bottom" *ngIf="i.disponibile===true">
-      <img src="{{i.immagine}}" class="col">
-      <label class="col"> {{i.marca}} </label>
-      <label class="col"> {{i.modello}} </label>
-      <label class="col"> {{i.prezzo}}€ al giorno</label>
-      <a class="col btn btn-success" routerLink="/lista-auto/{{i.autoid}}" >Vai alla descrizione</a>
+      <img src="{{i.immagine}}" class="col" style="width: 200px; margin-left: -15px;">
+      <label class="col" style="margin:30px 0px 70px 0px;"> {{i.marca}} </label>
+      <label class="col" style="margin:30px 0px 70px 0px;"> {{i.modello}} </label>
+      <label class="col" style="margin:30px 0px 70px 0px;"> {{i.potenza}} CV</label>
+      <a class="col btn btn-success" routerLink="/lista-auto/{{i.autoid}}" style="margin:30px 0px 70px 0px;">Vai alla descrizione</a>
     </span>
   </div>
   <div style="margin-top: 40px;">
@@ -24,11 +19,11 @@
   <div style="margin-bottom: 40px;">
   <div class="col" *ngFor="let i of auto" style="margin-top: 20px;">
     <span class="row border rounded-top rounded-bottom" *ngIf="i.disponibile===false">
-      <img src="{{i.immagine}}" class="col">
-      <label class="col"> {{i.marca}} </label>
-      <label class="col"> {{i.modello}} </label>
-      <label class="col"> {{i.prezzo}}€ al giorno</label>
-      <a class="col btn btn-danger" routerLink="/lista-auto/{{i.autoid}}" >Vai alla descrizione</a>
+      <img src="{{i.immagine}}" class="col" style="width: 200px; margin-left: -15px;">
+      <label class="col" style="margin:30px 0px 70px 0px;"> {{i.marca}} </label>
+      <label class="col" style="margin:30px 0px 70px 0px;"> {{i.modello}} </label>
+      <label class="col" style="margin:30px 0px 70px 0px;"> {{i.potenza}} CV</label>
+      <a class="col btn btn-danger" routerLink="/lista-auto/{{i.autoid}}" style="margin:30px 0px 70px 0px;">Vai alla descrizione</a>
     </span>
   </div>
 </div>

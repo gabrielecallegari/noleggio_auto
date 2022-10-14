@@ -1,1 +1,56 @@
-<p>registrazione works!</p>
+<body class="text-center" style="margin:100px 30% 0px 30%;">
+
+  <main class="form-signin w-100 m-auto" *ngIf="log===false">
+      <h1 class="h3 mb-3 fw-normal">Registrazione</h1>
+
+      <div class="form-floating">
+        <input type="email" class="form-control"  placeholder="name@example.com" #emailRef>
+        <label for="floatingInput"  >Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control"  placeholder="Password" #passwordRef>
+        <label for="floatingPassword"  >Password</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control"  placeholder="Nome" #nomeRef>
+        <label for="floatingPassword"  >Nome</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control"  placeholder="Cognome" #cognomeRef>
+        <label for="floatingPassword"  >Cognome</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          {{errore}}
+        </label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          Sei già registrato?
+        <a routerLink="/login">clicca qui</a>
+      </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" (click)="onRegistration(emailRef,passwordRef,nomeRef,cognomeRef)">Registrati</button>
+      <p class="mt-5 mb-3 text-muted">© NoleggioAuto 2022</p>
+  </main>
+
+  <div *ngIf="log===true">
+    <div class="d-flex align-items-center justify-content-center" style="margin-top: 100px;">
+      <div class="text-center">
+          <h1 class="display-1 fw-bold">Sei già loggato</h1>
+          <p class="fs-3">
+          <p class="lead">
+              Vuoi noleggiare un'auto?
+            </p>
+          <a routerLink="/lista-auto"class="btn btn-primary">Vai Alla Lista di auto disponibili</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  </body>

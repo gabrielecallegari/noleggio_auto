@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { AutenticazioneService } from '../autenticazione.service';
 import { AutoService } from '../auto.service';
 import { Tipoauto } from '../tipi/tipi.data'
 
@@ -10,16 +11,16 @@ import { Tipoauto } from '../tipi/tipi.data'
 })
 export class AutoDescrizioneComponent implements OnInit {
   auto?:Tipoauto
-  constructor( private autoService:AutoService, private route : ActivatedRoute, private router:Router) {
+  logged?:boolean
+  link = ""
+  constructor( private autoService:AutoService, private route : ActivatedRoute, private router:Router, private aut:AutenticazioneService) {
     console.log("Sono qui")
     const { autoid } = route?.snapshot?.params ?? {}
     this.auto=autoService.cercaAuto(autoid)
+    this.logged=aut.loggato
+    if(this.auto) this.link=this.auto.immagine
   }
 
   ngOnInit(): void {
-  }
-
-  prenota(){
-    this.router.navigate(["/pagamento"])
   }
 }

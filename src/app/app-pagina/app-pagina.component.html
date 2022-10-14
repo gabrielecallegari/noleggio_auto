@@ -1,0 +1,23 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+  <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+  </a>
+
+  <div>
+  <ul class="nav nav-pills">
+    <li class="nav-item"><a routerLink="/" routerLinkActive="active" class="nav-link " aria-current="page" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+    <li class="nav-item"><a routerLink="/lista-auto" routerLinkActive="active" class="nav-link">Auto disponibili</a></li>
+    <li class="nav-item"><a routerLink="/contatti" routerLinkActive="active" class="nav-link">Contatti</a></li>
+  </ul>
+  </div>
+    <div class="col-md-3 text-end" *ngIf="logged === false">
+     <a  routerLink="/login" class="text-decoration-none btn text-blue"> Login</a>
+     <a routerLink="/registrazione" class="text-decoration-none btn btn-primary text-blue"> Registrazione</a>
+   </div>
+   <div class="col-md-3 text-end" *ngIf="logged === true">
+    <label> Ciao {{utente?.nome}}</label>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
+
